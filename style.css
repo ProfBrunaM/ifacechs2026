@@ -1,0 +1,424 @@
+/* ============================================================
+   PROJETO INTEGRADOR — ESTILO PRINCIPAL
+   Cores: preto, branco e vermelho
+   Layout responsivo para computador, tablet e celular.
+============================================================ */
+
+:root {
+    --preto: #080808;
+    --preto-2: #111111;
+    --cinza: #1c1c1c;
+    --branco: #ffffff;
+    --cinza-claro: #c8c8c8;
+    --vermelho: #e10600;
+    --vermelho-escuro: #a80000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.topo {
+    min-height: 360px;
+    padding: 50px 7%;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(110deg, rgba(225,6,0,.18), transparent 45%),
+        var(--preto);
+    border-bottom: 1px solid #292929;
+}
+
+.topo::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -180px;
+    top: -180px;
+    border: 70px solid rgba(225, 6, 0, .15);
+    transform: rotate(45deg);
+}
+
+.logo-area {
+    width: 190px;
+    height: 190px;
+    border: 2px dashed #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101010;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+/* Se a logo ainda não estiver disponível, o espaço continua visível. */
+
+.titulo-area {
+    position: relative;
+    z-index: 2;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: var(--vermelho);
+    padding: 7px 13px;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.titulo-area h1 {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: .95;
+    max-width: 900px;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+}
+
+.titulo-area p {
+    color: var(--cinza-claro);
+    font-size: 1.15rem;
+    margin-top: 20px;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+main {
+    width: min(1200px, 86%);
+    margin: auto;
+}
+
+.apresentacao {
+    min-height: 250px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 30px;
+    align-items: center;
+    border-bottom: 1px solid #292929;
+}
+
+.numero-secao {
+    color: var(--vermelho);
+    font-weight: 900;
+    font-size: .85rem;
+    letter-spacing: 2px;
+}
+
+.apresentacao h2,
+.cabecalho-secao h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.apresentacao p {
+    color: var(--cinza-claro);
+    max-width: 720px;
+    margin-top: 15px;
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.noticias,
+.projetos {
+    padding: 90px 0;
+}
+
+.cabecalho-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.cabecalho-secao > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cabecalho-secao p {
+    max-width: 380px;
+    color: var(--cinza-claro);
+}
+
+/* =========================
+   LINKS / NOTÍCIAS
+========================= */
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.link-card {
+    min-height: 170px;
+    padding: 25px;
+    color: var(--branco);
+    background: var(--cinza);
+    border: 1px solid #2b2b2b;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--vermelho);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: .25s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-6px);
+    background: #242424;
+}
+
+.link-card:hover::before {
+    transform: scaleX(1);
+}
+
+.link-card span {
+    color: var(--vermelho);
+    font-weight: 900;
+}
+
+.link-card strong {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.link-card small {
+    color: #aaa;
+}
+
+/* =========================
+   GALERIA DE PROJETOS
+========================= */
+
+.projetos {
+    border-top: 1px solid #292929;
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: #111;
+    border: 1px solid #292929;
+    overflow: hidden;
+    transition: .25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--vermelho);
+}
+
+.foto-projeto {
+    height: 300px;
+    background: #242424;
+    position: relative;
+    overflow: hidden;
+}
+
+.foto-projeto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: .4s ease;
+}
+
+.project-card:hover .foto-projeto img {
+    transform: scale(1.04);
+}
+
+.tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--vermelho);
+    padding: 6px 10px;
+    font-size: .7rem;
+    font-weight: 900;
+}
+
+.project-content {
+    padding: 28px;
+}
+
+.project-content h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    color: var(--cinza-claro);
+    margin-bottom: 25px;
+}
+
+.equipe {
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.equipe span {
+    color: var(--vermelho);
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.equipe strong {
+    font-size: .95rem;
+    margin-top: 4px;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    background: #050505;
+    border-top: 4px solid var(--vermelho);
+    padding: 45px 7%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+footer div {
+    display: flex;
+    flex-direction: column;
+}
+
+footer strong {
+    text-transform: uppercase;
+}
+
+footer span,
+footer p {
+    color: #999;
+    font-size: .9rem;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 850px) {
+    .topo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 7%;
+    }
+
+    .logo-area {
+        width: 150px;
+        height: 150px;
+    }
+
+    .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecalho-secao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 550px) {
+    .topo {
+        min-height: auto;
+        padding: 30px 6%;
+    }
+
+    .titulo-area h1 {
+        letter-spacing: -1.5px;
+    }
+
+    main {
+        width: 88%;
+    }
+
+    .apresentacao {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+    }
+
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .noticias,
+    .projetos {
+        padding: 65px 0;
+    }
+
+    .foto-projeto {
+        height: 240px;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 35px 6%;
+    }
+}
